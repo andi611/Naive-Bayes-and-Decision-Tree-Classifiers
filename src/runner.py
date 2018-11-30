@@ -26,6 +26,7 @@ def get_config():
 	parser = argparse.ArgumentParser(description='descrip_msg')
 
 	classifier = parser.add_argument_group('classifier')
+	classifier.add_argument('--classifier', type=str, default='', help='classifier to be specified by user')
 	classifier.add_argument('--naive_bayes', action='store_true', help='enable Naive Bayes classification mode')
 	classifier.add_argument('--decision_tree', action='store_true', help='enable Decision Tree classification mode')
 
@@ -63,12 +64,15 @@ def get_config():
 # ERROR HANDLING #
 ##################
 def error_handling(args):
+	if args.classifier != '':
+		args.naive_bayes = True if args.classifier == 'N' else False
+		args.decision_tree = True if args.classifier == 'D' else False
 	if args.naive_bayes and args.decision_tree == True:
-		raise AssertionError('Please choose one classifier at once!')
+		raise AssertionError('Please choose one classifier at once, or specify the correct classifier!')
 	if args.search_opt and args.run_all and args.visualize_tree == True:
-		raise AssertionError('Please choose one mode at once!')
+		raise AssertionError('Please choose one mode at a time!')
 	if args.data_news and args.data_mushroom and args.income == True:
-		raise AssertionError('Please choose one dataset at once!')
+		raise AssertionError('Please choose one and at least one dataset at a time!')
 	if args.train_path != '' and args.test_path != '':
 		if not os.path.isfile(args.train_path) or not os.path.isfile(args.test_path): 
 			raise AssertionError('The given file path is invalid!')

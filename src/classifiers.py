@@ -111,7 +111,8 @@ class naive_bayes_runner(object):
 		if self.cross_validate: 
 			scores = cross_val_score(self.models[BEST_DISTRIBUTION], self.train_x, self.train_y, cv=N_FOLD, scoring='accuracy')
 			acc = scores.mean()
-			pred_y = self.models[BEST_DISTRIBUTION].fit(self.train_x, self.train_y).predict(self.test_x)
+			model_fit = self.models[BEST_DISTRIBUTION].fit(self.train_x, self.train_y)
+			pred_y = model_fit.predict(self.test_x)
 		else:
 			acc, pred_y = self._fit_and_evaluate(self.models[BEST_DISTRIBUTION])
 		print('>> [Naive Bayes Runner] '+ BEST_DISTRIBUTION + ' - Accuracy:', acc)
@@ -201,7 +202,8 @@ class decision_tree_runner(object):
 		if self.cross_validate: 
 			scores = cross_val_score(self.model, self.train_x, self.train_y, cv=N_FOLD, scoring='accuracy')
 			acc = scores.mean()
-			pred_y = self.model.fit(self.train_x, self.train_y).predict(self.test_x)
+			model_fit = self.model.fit(self.train_x, self.train_y)
+			pred_y = model_fit.predict(self.test_x)
 		else:		
 			acc, pred_y = self._fit_and_evaluate()
 		print('>> [Decision Tree Runner] - Accuracy:', acc)

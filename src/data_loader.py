@@ -96,13 +96,13 @@ class data_loader(object):
 		train_x = imputer.transform(train_x).values
 		test_x = imputer.transform(test_x).values
 		
-		#---split into categorical and continues---#
+		#---split into categorical and continuous---#
 		categorical_features = [1, 3, 5, 6, 7, 8, 9, 13]
-		continues_features = [0, 2, 4, 10, 11, 12]
+		continuous_features = [0, 2, 4, 10, 11, 12]
 		train_x_cat = np.take(train_x, indices=categorical_features, axis=1)
-		train_x_con = np.take(train_x, indices=continues_features, axis=1).astype(np.float64)
+		train_x_con = np.take(train_x, indices=continuous_features, axis=1).astype(np.float64)
 		test_x_cat = np.take(test_x, indices=categorical_features, axis=1)
-		test_x_con = np.take(test_x, indices=continues_features, axis=1).astype(np.float64)
+		test_x_con = np.take(test_x, indices=continuous_features, axis=1).astype(np.float64)
 		
 		#---transform categocial to one hot---#
 		encoder = OneHotEncoder(handle_unknown='ignore')
@@ -110,7 +110,7 @@ class data_loader(object):
 		train_x_cat = encoder.transform(train_x_cat).toarray()
 		test_x_cat = encoder.transform(test_x_cat).toarray()
 
-		#---normalize continues data---#
+		#---normalize continuous data---#
 		normalizer = Normalizer(norm='max', copy=False)
 		normalizer.fit(train_x_con)
 		train_x_con = normalizer.transform(train_x_con)
