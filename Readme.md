@@ -1,6 +1,6 @@
 # Data Mining: Naive Bayes and Decision Tree Classifiers
 - **Naive Bayes and Decision Tree Classifiers implemented with Scikit-Learn and Visualization**
-![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_INCOME.png)
+![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_NEWS.png)
 - Datasets:
     - News (subset of 20 Newsgroups dataset, with testing label)
     - Mushroom (with testing label)
@@ -43,31 +43,6 @@
 ├── problem_description.pdf -----> Work spec
 └── Readme.md -------------------> This file
 ```
-
-## Data Preprocessing
-### News Dataset Preprocessing
-- None, raw input
-
-### Mushroom Dataset Preprocessing
-- 22 categorical attributes are transformed into a 117 dimension one-hot vector
-- Resulting data shape:
-<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/mushroom_preprocessing.png width="394" height="86">
-
-### Income Dataset Preprocessing
-- Specify each entry to either one of the data type: (int, str)
-- Identify all missing entries `'?'` and replace them with `np.nan`
-- Impute and estimate all missing entries:
-    - If dtype is `int`: impute with mean value of the feature column
-    - If dtype is `str`: impute with most frequent item in the feature column
-- Split data into categorical and continues and process them separately:
-    - categorical features index = [1, 3, 5, 6, 7, 8, 9, 13]
-    - continues features index = [0, 2, 4, 10, 11, 12]
-- For categorical data:
-    - 8 categorical attributes are transformed into a 99 dimension one-hot vector
-- For continues data:
-    - Normalize with maximum norm of that feature column
-- Re-concatenate categorical features and continues features, the resulting data shape:
-<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/income_preprocessing.png width="423" height="170">
 
 
 ## Usage
@@ -143,16 +118,43 @@
 - tree.DecisionTreeClassifier(criterion='gini', splitter='random', seed=1337, **max_depth=64**) => **0.64895**
 <img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_news.png width="458" height="20">
 - decision tree visualization with the graphviz toolkit:
-![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_NEWS.png)
+<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_NEWS.png>
 
 ### Mushroom Dataset - Testing Set Acc
 - tree.DecisionTreeClassifier(criterion='gini', splitter='random', seed=1337, **max_depth=64**) => **1.0**
-<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_mushroom.png width="345" height="16">
+<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_mushroom.png width="345" height="20">
 - decision tree visualization with the graphviz toolkit:
-![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_MUSHROOM_.png)
+<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_MUSHROOM_.png>
 
 ### Income Dataset - N-Fold Cross-Validation Acc
 - tree.DecisionTreeClassifier(criterion='gini', splitter='random', seed=1337, **max_depth=11**) => **0.83554**
-<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_income.png width="459" height="16">
+<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_income.png width="459" height="20">
 - decision tree visualization with the graphviz toolkit:
-![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_INCOME.png)
+<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_INCOME.png>
+
+
+## Data Preprocessing
+### News Dataset Preprocessing
+- None, raw input
+
+### Mushroom Dataset Preprocessing
+- 22 categorical attributes are transformed into a 117 dimension one-hot vector
+- Resulting data shape:
+<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/mushroom_preprocessing.png width="394" height="86">
+
+### Income Dataset Preprocessing
+- Specify each entry to either one of the data type: (int, str)
+- Identify all missing entries `'?'` and replace them with `np.nan`
+- Impute and estimate all missing entries:
+    - If dtype is `int`: impute with mean value of the feature column
+    - If dtype is `str`: impute with most frequent item in the feature column
+- Split data into categorical and continues and process them separately:
+    - categorical features index = [1, 3, 5, 6, 7, 8, 9, 13]
+    - continues features index = [0, 2, 4, 10, 11, 12]
+- For categorical data:
+    - 8 categorical attributes are transformed into a 99 dimension one-hot vector
+- For continues data:
+    - Normalize with maximum norm of that feature column
+- Re-concatenate categorical features and continues features, the resulting data shape:
+<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/income_preprocessing.png width="423" height="70">
+
