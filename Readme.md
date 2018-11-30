@@ -1,5 +1,6 @@
 # Data Mining: Naive Bayes and Decision Tree Classifiers
-- **Naive Bayes and Decision Tree Classifiers implemented with Scikit-Learn**
+- **Naive Bayes and Decision Tree Classifiers implemented with Scikit-Learn and Visualization**
+![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_INCOME.png)
 - Datasets:
     - News (subset of 20 Newsgroups dataset, with testing label)
     - Mushroom (with testing label)
@@ -66,7 +67,7 @@
 - For continues data:
     - Normalize with maximum norm of that feature column
 - Re-concatenate categorical features and continues features, the resulting data shape:
-![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/income_preprocessing.png)
+<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/income_preprocessing.png width="423" height="170">
 
 
 ## Usage
@@ -121,37 +122,37 @@
 - **naive_bayes.MultinomialNB(alpha=0.065)** => **0.89511**
 - naive_bayes.ComplementNB(alpha=0.136) => 0.88811
 - naive_bayes.BernoulliNB(alpha=0.002) => 0.82727
-![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/nb_on_news.png)
+<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/nb_on_news.png width="546" height="70">
 
 ### Mushroom Dataset - Testing Set Acc
 - naive_bayes.GaussianNB() => 0.95505 (baseline)
 - **naive_bayes.MultinomialNB(alpha=0.0001)** => **0.99569**
 - naive_bayes.ComplementNB(alpha=0.0001) => 0.99507
 - naive_bayes.BernoulliNB(alpha=0.0001) => 0.98830
-![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/nb_on_mushroom.png)
+<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/nb_on_mushroom.png width="547" height="68">
 
 ### Income Dataset - N-Fold Cross-Validation Acc
 - naive_bayes.GaussianNB() => 0.58602 (baseline)
 - **naive_bayes.MultinomialNB(alpha=0.959)** =>**0.79148**
 - naive_bayes.ComplementNB(alpha=0.16) => 0.74992
 - naive_bayes.BernoulliNB(alpha=0.001) => 0.75760
-![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/nb_on_income.png)
+<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/nb_on_income.png width="547" height="70">
 
 ## Result - Decision Tree Performance
 ### News Dataset - Testing Set Acc
 - tree.DecisionTreeClassifier(criterion='gini', splitter='random', seed=1337, **max_depth=64**) => **0.64895**
-![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_news.png)
+<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_news.png width="458" height="20">
 - decision tree visualization with the graphviz toolkit:
 ![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_NEWS.png)
 
 ### Mushroom Dataset - Testing Set Acc
 - tree.DecisionTreeClassifier(criterion='gini', splitter='random', seed=1337, **max_depth=64**) => **1.0**
-![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_mushroom.png)
+<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_mushroom.png width="345" height="16">
 - decision tree visualization with the graphviz toolkit:
 ![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_MUSHROOM_.png)
 
 ### Income Dataset - N-Fold Cross-Validation Acc
 - tree.DecisionTreeClassifier(criterion='gini', splitter='random', seed=1337, **max_depth=11**) => **0.83554**
-![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_income.png)
+<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_income.png width="459" height="16">
 - decision tree visualization with the graphviz toolkit:
 ![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_INCOME.png)
