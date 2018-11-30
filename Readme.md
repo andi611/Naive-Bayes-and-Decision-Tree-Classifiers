@@ -43,16 +43,16 @@
 └── Readme.md -------------------> This file
 ```
 
-## Data Preprocessing (Data Loader)
-### News Dataset
+## Data Preprocessing
+### News Dataset Preprocessing
 - None, raw input
 
-### Mushroom Dataset
+### Mushroom Dataset Preprocessing
 - 22 categorical attributes are transformed into a 117 dimension one-hot vector
 - Resulting data shape:
-![]()
+![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/mushroom_preprocessing.png)
 
-### Income Dataset
+### Income Dataset Preprocessing
 - Specify each entry to either one of the data type: (int, str)
 - Identify all missing entries `'?'` and replace them with `np.nan`
 - Impute and estimate all missing entries:
@@ -66,24 +66,27 @@
 - For continues data:
     - Normalize with maximum norm of that feature column
 - Re-concatenate categorical features and continues features, the resulting data shape:
-![]()
+![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/income_preprocessing.png)
 
 
 ## Usage
 
 ### Naive Bayes Classifier
-- Train and test with the best <font color="#FF5733">**alpha**</font> parameter for the **best** distribution assumption of the Naive Bayes classifier:
+- Train and test with the best **alpha** parameter for the **best** distribution assumption of the Naive Bayes classifier:
     - News dataset: `python3 runner.py --naive_bayes --data_news`
     - Mushroom dataset: `python3 runner.py --naive_bayes --data_mushroom`
     - Income dataset: `python3 runner.py --naive_bayes --data_income`
 
-- Search for the best <font color="#FF5733">**alpha**</font> parameter for **each** distribution assumption of the Naive Bayes classifier:
+- Search for the best **alpha** parameter for **each** distribution assumption of the Naive Bayes classifier:
     - Add the `--search_opt` argument
-    - News dataset: `python3 runner.py --naive_bayes --search_opt --data_news` (validated on the testing set)
-    - Mushroom dataset: `python3 runner.py --naive_bayes --search_opt --data_mushroom` (validated on the testing set)
-    - Income dataset: `python3 runner.py --naive_bayes --search_opt --data_income` (Using N-fold cross-validation on the training set)
+    - News dataset (validated on the testing set): 
+    ```python3 runner.py --naive_bayes --search_opt --data_news``` 
+    - Mushroom dataset (validated on the testing set):
+    ```python3 runner.py --naive_bayes --search_opt --data_mushroom```
+    - Income dataset (Using N-fold cross-validation on the training set): 
+    ```python3 runner.py --naive_bayes --search_opt --data_income``` 
 
-- Compare **all** distribution assumption of the Naive Bayes classifier with their own best <font color="#FF5733">**alpha**</font> parameter:
+- Compare **all** distribution assumption of the Naive Bayes classifier with their own best **alpha** parameter:
     - Add the `--run_all` argument
     - News dataset: `python3 runner.py --naive_bayes --run_all --data_news`
     - Mushroom dataset: `python3 runner.py --naive_bayes --run_all --data_mushroom`
@@ -91,18 +94,21 @@
 
 
 ### Decision Tree Classifier
-- Train and test with the best <font color="#FF5733">**max depth**</font> parameter for the Decision Tree classifier:
+- Train and test with the best **max depth** parameter for the Decision Tree classifier:
     - News dataset: `python3 runner.py --decision_tree --data_news`
     - Mushroom dataset: `python3 runner.py --decision_tree --data_mushroom`
     - Income dataset: `python3 runner.py --decision_tree --data_income`
 
-- Search the best <font color="#FF5733">**max depth**</font> parameter for the Decision Tree classifier:
+- Search the best **max depth** parameter for the Decision Tree classifier:
     - Add the `--search_opt` argument
-    - News dataset: `python3 runner.py --decision_tree --search_opt --data_news` (validated on the testing set)
-    - Mushroom dataset: `python3 runner.py --decision_tree --search_opt --data_mushroom` (validated on the testing set)
-    - Income dataset: `python3 runner.py --decision_tree --search_opt --data_income` (Using N-fold cross-validation on the training set)
+    - News dataset (validated on the testing set): 
+    ```python3 runner.py --decision_tree --search_opt --data_news```
+    - Mushroom dataset (validated on the testing set): 
+    ```python3 runner.py --decision_tree --search_opt --data_mushroom``` 
+    - Income dataset (Using N-fold cross-validation on the training set): 
+    ```python3 runner.py --decision_tree --search_opt --data_income``` 
 
-- Visualize the Decision Tree classifier with the best <font color="#FF5733">**max depth**</font> parameter:
+- Visualize the Decision Tree classifier with the best **max depth** parameter:
     - Add the `--visualize_tree` argument
     - News dataset: `python3 runner.py --decision_tree --visualize_tree --data_news`
     - Mushroom dataset: `python3 runner.py --decision_tree --visualize_tree --data_mushroom`
@@ -112,40 +118,40 @@
 ## Result - Naive Bayes Performance
 ### News Dataset - Testing Set Acc
 - naive_bayes.GaussianNB() => 0.80979 (baseline)
-- **naive_bayes.MultinomialNB(alpha=0.065)** => <font color="#FF5733">**0.89511**</font>
+- **naive_bayes.MultinomialNB(alpha=0.065)** => **0.89511**
 - naive_bayes.ComplementNB(alpha=0.136) => 0.88811
 - naive_bayes.BernoulliNB(alpha=0.002) => 0.82727
-![]()
+![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/nb_on_news.png)
 
 ### Mushroom Dataset - Testing Set Acc
 - naive_bayes.GaussianNB() => 0.95505 (baseline)
-- **naive_bayes.MultinomialNB(alpha=0.0001)** => <font color="#FF5733">**0.99569**</font>
+- **naive_bayes.MultinomialNB(alpha=0.0001)** => **0.99569**
 - naive_bayes.ComplementNB(alpha=0.0001) => 0.99507
 - naive_bayes.BernoulliNB(alpha=0.0001) => 0.98830
-![]()
+![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/nb_on_mushroom.png)
 
 ### Income Dataset - N-Fold Cross-Validation Acc
 - naive_bayes.GaussianNB() => 0.58602 (baseline)
-- **naive_bayes.MultinomialNB(alpha=0.959)** => <font color="#FF5733">**0.79148**</font>
+- **naive_bayes.MultinomialNB(alpha=0.959)** =>**0.79148**
 - naive_bayes.ComplementNB(alpha=0.16) => 0.74992
 - naive_bayes.BernoulliNB(alpha=0.001) => 0.75760
-![]()
+![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/nb_on_income.png)
 
 ## Result - Decision Tree Performance
 ### News Dataset - Testing Set Acc
 - tree.DecisionTreeClassifier(criterion='gini', splitter='random', seed=1337, **max_depth=64**) => **0.64895**
-![]()
+![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_news.png)
 - decision tree visualization with the graphviz toolkit:
-![]()
+![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_NEWS.png)
 
 ### Mushroom Dataset - Testing Set Acc
-- tree.DecisionTreeClassifier(criterion='gini', splitter='random', seed=1337, **max_depth=64**) => <font color="#FF5733">**1.0**</font>
-![]()
+- tree.DecisionTreeClassifier(criterion='gini', splitter='random', seed=1337, **max_depth=64**) => **1.0**
+![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_mushroom.png)
 - decision tree visualization with the graphviz toolkit:
-![]()
+![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_MUSHROOM_.png)
 
 ### Income Dataset - N-Fold Cross-Validation Acc
-- tree.DecisionTreeClassifier(criterion='gini', splitter='random', seed=1337, **max_depth=11**) => <font color="#FF5733">**0.83554**</font>
-![]()
+- tree.DecisionTreeClassifier(criterion='gini', splitter='random', seed=1337, **max_depth=11**) => **0.83554**
+![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_income.png)
 - decision tree visualization with the graphviz toolkit:
-![]()
+![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_INCOME.png)
