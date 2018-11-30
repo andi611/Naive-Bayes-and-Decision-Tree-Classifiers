@@ -50,7 +50,7 @@
 ### Mushroom Dataset Preprocessing
 - 22 categorical attributes are transformed into a 117 dimension one-hot vector
 - Resulting data shape:
-![](https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/mushroom_preprocessing.png)
+<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/mushroom_preprocessing.png width="394" height="86">
 
 ### Income Dataset Preprocessing
 - Specify each entry to either one of the data type: (int, str)
