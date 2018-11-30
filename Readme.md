@@ -56,11 +56,17 @@
 - Search for the best **alpha** parameter for **each** distribution assumption of the Naive Bayes classifier:
     - Add the `--search_opt` argument
     - News dataset (validated on the testing set): 
-```python3 runner.py --naive_bayes --search_opt --data_news``` 
+```
+python3 runner.py --naive_bayes --search_opt --data_news
+``` 
     - Mushroom dataset (validated on the testing set):
-```python3 runner.py --naive_bayes --search_opt --data_mushroom```
+```
+python3 runner.py --naive_bayes --search_opt --data_mushroom
+```
     - Income dataset (Using N-fold cross-validation on the training set): 
-```python3 runner.py --naive_bayes --search_opt --data_income``` 
+```
+python3 runner.py --naive_bayes --search_opt --data_income
+``` 
 
 - Compare **all** distribution assumption of the Naive Bayes classifier with their own best **alpha** parameter:
     - Add the `--run_all` argument
@@ -78,11 +84,17 @@
 - Search the best **max depth** parameter for the Decision Tree classifier:
     - Add the `--search_opt` argument
     - News dataset (validated on the testing set): 
-```python3 runner.py --decision_tree --search_opt --data_news```
+```
+python3 runner.py --decision_tree --search_opt --data_news
+```
     - Mushroom dataset (validated on the testing set): 
-```python3 runner.py --decision_tree --search_opt --data_mushroom``` 
+```
+python3 runner.py --decision_tree --search_opt --data_mushroom
+``` 
     - Income dataset (Using N-fold cross-validation on the training set): 
-```python3 runner.py --decision_tree --search_opt --data_income``` 
+```
+python3 runner.py --decision_tree --search_opt --data_income
+``` 
 
 - Visualize the Decision Tree classifier with the best **max depth** parameter:
     - Add the `--visualize_tree` argument
