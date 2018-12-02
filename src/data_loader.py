@@ -15,7 +15,6 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import Normalizer
-from sklearn.preprocessing import LabelEncoder
 from sklearn.base import TransformerMixin
 
 
@@ -80,7 +79,7 @@ class data_loader(object):
 		return train_x, test_x
 
 
-	def _preprocess_income(self, train_x, test_x):
+	def _preprocess_income(self, train_x, test_x, norm=False):
 
 		#--separate str and int dtype---#
 		train_x = self._to_different_dtype(train_x)
@@ -103,18 +102,19 @@ class data_loader(object):
 		train_x_con = np.take(train_x, indices=continuous_features, axis=1).astype(np.float64)
 		test_x_cat = np.take(test_x, indices=categorical_features, axis=1)
 		test_x_con = np.take(test_x, indices=continuous_features, axis=1).astype(np.float64)
-		
+
 		#---transform categocial to one hot---#
 		encoder = OneHotEncoder(handle_unknown='ignore')
 		encoder.fit(train_x_cat)
 		train_x_cat = encoder.transform(train_x_cat).toarray()
 		test_x_cat = encoder.transform(test_x_cat).toarray()
 
-		#---normalize continuous data---#
-		normalizer = Normalizer(norm='max', copy=False)
-		normalizer.fit(train_x_con)
-		train_x_con = normalizer.transform(train_x_con)
-		test_x_con = normalizer.transform(test_x_con)
+		# #---normalize continuous data---#
+		if norm:
+			normalizer = Normalizer(norm='max', copy=False)
+			normalizer.fit(train_x_con)
+			train_x_con = normalizer.transform(train_x_con)
+			test_x_con = normalizer.transform(test_x_con)
 
 		#---concatenate and split---#
 		train_x = np.concatenate((train_x_cat, train_x_con), axis=1)

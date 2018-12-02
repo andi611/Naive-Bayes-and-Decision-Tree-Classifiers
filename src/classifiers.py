@@ -148,10 +148,10 @@ class decision_tree_runner(object):
 													 random_state=1337)
 		elif self.MODEL == 'INCOME':
 			self.cross_validate = True
-			self.model = tree.DecisionTreeClassifier(criterion='gini', 
-													 splitter='random', 
-													 max_depth=11,
-													 random_state=1337)
+			self.model = tree.DecisionTreeClassifier(criterion='entropy',  
+													 max_depth=15,
+													 random_state=1337,
+													 min_impurity_decrease=2e-4)
 
 
 	def _fit_and_evaluate(self):
