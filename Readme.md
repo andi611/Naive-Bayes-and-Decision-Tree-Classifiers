@@ -139,7 +139,7 @@
 <img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_MUSHROOM_.png>
 
 ### Income Dataset - N-Fold Cross-Validation Acc
-- tree.DecisionTreeClassifier(criterion='entropy', random_state=1337, **max_depth=15**, min_impurity_decrease=2e-4) => **0.83554**
+- tree.DecisionTreeClassifier(criterion='entropy', **max_depth=15**, min_impurity_decrease=2e-4) => **0.83554**
 - <img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_income.png width="459" height="20">
 - decision tree visualization with the graphviz toolkit:
 <img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_INCOME_2.png>
