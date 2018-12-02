@@ -142,7 +142,7 @@
 - tree.DecisionTreeClassifier(criterion='gini', splitter='random', seed=1337, **max_depth=11**) => **0.83554**
 <img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_income.png width="459" height="20">
 - decision tree visualization with the graphviz toolkit:
-<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_INCOME.png>
+<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_INCOME_2.png>
 
 
 ## Data Preprocessing
