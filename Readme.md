@@ -128,19 +128,19 @@
 ## Result - Decision Tree Performance
 ### News Dataset - Testing Set Acc
 - tree.DecisionTreeClassifier(criterion='gini', splitter='random', seed=1337, **max_depth=64**) => **0.64895**
-<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_news.png width="458" height="20">
+- <img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_news.png width="458" height="20">
 - decision tree visualization with the graphviz toolkit:
 <img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_NEWS.png>
 
 ### Mushroom Dataset - Testing Set Acc
 - tree.DecisionTreeClassifier(criterion='gini', splitter='random', seed=1337, **max_depth=64**) => **1.0**
-<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_mushroom.png width="345" height="20">
+- <img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_mushroom.png width="345" height="20">
 - decision tree visualization with the graphviz toolkit:
 <img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_MUSHROOM_.png>
 
 ### Income Dataset - N-Fold Cross-Validation Acc
 - tree.DecisionTreeClassifier(criterion='gini', splitter='random', seed=1337, **max_depth=11**) => **0.83554**
-<img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_income.png width="459" height="20">
+- <img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/dt_on_income.png width="459" height="20">
 - decision tree visualization with the graphviz toolkit:
 <img src=https://github.com/andi611/Naive-Bayes-and-Decision-Tree-Classifiers/blob/master/image/TREE_INCOME_2.png>
 
