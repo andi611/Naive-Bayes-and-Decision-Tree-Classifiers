@@ -46,6 +46,8 @@
 
 
 ## Usage
+### Data
+- Unzip `data.zip` with: `unzip data.zip`
 
 ### Naive Bayes Classifier
 - Train and test with the best **alpha** parameter for the **best** distribution assumption of the Naive Bayes classifier:
